@@ -1,0 +1,102 @@
+{
+  "@context": [
+    {
+      "@version": 1.0
+    },
+    {
+      "@vocab": "https://de.wikipedia.org/wiki/GAIA-X#",
+      "owl": "http://www.w3.org/2002/07/owl#",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "schema": "http://schema.org/"
+    },
+    // "https://w3id.org/security/v2"
+  ],
+  "@id": "IBM-Deutschland-GmbH:sd/service/managed-postresql-db",
+  "@type": "ServiceSelfDescription",
+  "rdfs:label": {
+    "@value": "Managed PostgreSQL database on IBM Cloud",
+    "@language": "en"
+  },
+  "describedBy": [
+    {
+      "@id": "postgresql-database-ibm:sd/service/ibm/metadata",
+      "@type": "MetaData",
+      "schema:name": "postgresql-database-ibm",
+      "schema:version": "v1.0",
+      "schema:description": {
+        "@value": "PostgreSQL is a powerful, open source object-relational database that is highly customizable. It’s a feature-rich enterprise database with JSON support, giving you the best of both the SQL and NoSQL worlds. Databases for PostgreSQL makes PostgreSQL even better by managing it for you. Features include high availability, automated backup orchestration, autoscaling, and de-coupled allocation of storage, RAM, and vCPUs. Databases for PostgreSQL pricing is based on underlying disk, RAM, and optional vCPU allocation, as well as backup storage usage. The service is HIPAA-Ready and compliant with SOC 2 Type 2, ISO 27017, and ISO 27018. You can also learn more by viewing docs, API docs, and terms.",
+        "@language": "en"
+      },
+      "schema:dateModified": "2020-10-29T12:30:00Z",
+      "screenshots": [
+        "https://www.ibm.com/de-de/cloud/databases-for-postgresql"
+      ],
+      "providedBy": {
+        "@id": "IBM-Deutschland-GmbH:sd/org/IBM-Deutschland-GmbH",
+        "@type": "ServiceProvider",
+        "schema:name": "IBM Deutschland GmbH",
+        "schema:address": "",
+        "schema:url": "",
+        "schema:description": {
+          "@value": "company profile",
+          "@language": "en"
+        },
+        "schema:logo": "https://broker.eu-fr2.databases.cloud.ibm.com/images/postgresql.svg",
+        "contactTechnical": {
+          "@id": "IBM-Deutschland:sd/person/Jo-Stark",
+          "@type": "foaf:Person",
+          "schema:name": "",
+          "schema:email": ""
+        }
+      }
+    }
+  ],
+  "includes": [
+    {
+      "@type": "Testimonial",
+      "@id": "IBM-Deutschland:sd/service/ibmtestimonial/deployment",
+      "rdfs:label": "Deployment Testimonial",
+      "includes": [
+        {
+          "@type": "DB-as-a-Service provisioning via GUI",
+          "instruction": [
+            "https://cloud.ibm.com/catalog/services/databases-for-postgresql"
+          ],
+          "source": {
+            "@type": "WebProvisioner",
+            "schema:url": "https://cloud.ibm.com/catalog/services/databases-for-postgresql",
+            "apiKey": ""
+            // "login": "",
+            // "password": ""
+          }
+        },
+        {
+          "@type": "DB-as-a-Service provisioning via Terraform",
+          "instruction": [
+            "https://github.com/IBM-Cloud/terraform-provider-ibm/"
+          ],
+          "source": {
+            "@type": "TerraformProvider",
+            "schema:url": "https://cloud.ibm.com/docs/terraform?topic=terraform-databases-resources#db",
+            "apiKey": ""
+          }
+        }
+      ],
+      "requires": [
+        {
+          "@type": "IBM Cloud Account",
+          "contains": {
+            "@type": "IAM service Access",
+            "typeofaccess": "Databases for PostgreSQL"
+          }
+        }
+      ]
+    }
+  ],
+  "proof": {
+    "type": "apiKey",
+    "instructions": "https://cloud.ibm.com/apidocs/cloud-databases-api/cloud-databases-api-v5#authentication",
+  }
+}
